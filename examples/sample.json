@@ -1,0 +1,19 @@
+{
+  "left": {
+    "name": "First",
+    "pages": 320,
+    "format": "hardcover",
+    "extras": [
+      "map"
+    ]
+  },
+  "right": {
+    "name": "Second",
+    "pages": 336,
+    "format": "paperback",
+    "extras": [
+      "map",
+      "essay"
+    ]
+  }
+}
