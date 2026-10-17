@@ -11,3 +11,7 @@ Verify Reject non-object input and edition values with actionable CLI errors; Va
 Report boolean-to-number changes accurately in JSON comparison evidence.
 
 Verify Distinguish JSON booleans from numbers recursively in objects and arrays; Retain numeric equality for 1 and 1.0, object key-order independence and list order; Add regressions against the public comparison entry point. Run the full existing quality and build gates; release only through protected PR checks and verified tag artifacts.
+
+## 1.0.3 acceptance
+
+Create JSON and Markdown report destinations exclusively. Verify a destination created immediately before opening is preserved, the command returns an actionable error, source input bytes stay unchanged, and new destinations still work. Run formatting, lint, typing, the full test suite, builds, and the runtime dependency audit before protected release.

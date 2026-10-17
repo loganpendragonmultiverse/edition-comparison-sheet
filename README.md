@@ -13,13 +13,17 @@
 - See when a field is missing, empty or different between editions.
 
 
-## Current release 1.0.2
+## Current release 1.0.3
+
+File outputs are created exclusively. If another process creates the destination before the report is opened, the command reports an error and preserves that file and the source input.
+
+## Earlier release 1.0.2
 
 Comparisons now tell the difference between booleans and numbers, even inside nested values.
 
 JSON true differs from 1 and false differs from 0, including inside nested metadata. Numeric 1 and 1.0 compare equally; object key order does not matter, while array order does. Existing field-presence and privacy rules still apply.
 
-## Current release 1.0.1
+## Earlier release 1.0.1
 
 Check the edition records and your chosen fields before comparing them.
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.3 - 2026-10-17
+
+- Create report files exclusively so a destination arriving during export is never overwritten.
+- Add JSON and Markdown collision regressions that also verify source preservation.
+
 ## 1.0.2 - 2026-10-17
 
 - Distinguish JSON booleans from numbers recursively in objects and arrays
