@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 from typing import Any
 
+from .json_equality import json_equal
+
 PROJECT = "edition-comparison-sheet"
 
 
@@ -49,7 +51,7 @@ def _edition_compare(data: dict[str, Any]) -> dict[str, Any]:
                 "right": b,
                 "left_present": field in left,
                 "right_present": field in right,
-                "same": a == b and (field in left) == (field in right),
+                "same": json_equal(a, b) and (field in left) == (field in right),
             }
         )
     return {
