@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.0
+
+- Show a readable side-by-side Markdown comparison table with typed values and explicit missing fields.
+- Retain complete JSON evidence and escape user-controlled table text and evidence fences.
+
 ## 1.0.3 - 2026-10-17
 
 - Create report files exclusively so a destination arriving during export is never overwritten.

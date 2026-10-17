@@ -15,3 +15,7 @@ Verify Distinguish JSON booleans from numbers recursively in objects and arrays;
 ## 1.0.3 acceptance
 
 Create JSON and Markdown report destinations exclusively. Verify a destination created immediately before opening is preserved, the command returns an actionable error, source input bytes stay unchanged, and new destinations still work. Run formatting, lint, typing, the full test suite, builds, and the runtime dependency audit before protected release.
+
+## 1.1.0 readable comparison sheets
+
+Render a side-by-side Markdown table without changing JSON comparison semantics or selected-field order. Distinguish missing, null, booleans, numbers and strings; preserve nested values. Escape user-controlled table text and choose a safe evidence fence. Retain full JSON comparison evidence and exclusive output creation.
