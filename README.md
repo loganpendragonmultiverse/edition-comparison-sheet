@@ -13,7 +13,11 @@
 - See when a field is missing, empty or different between editions.
 
 
-## Current release 1.0.3
+## Current release 1.1.0
+
+Markdown reports now show a side-by-side table with your edition names, selected fields and equality results. JSON values retain their types: strings are quoted, null is explicit and an absent field is marked missing. Full JSON comparison evidence follows the table. Field names, edition names and values are escaped to keep pipes, Markdown and HTML text inside their cells; backticks cannot close the evidence block.
+
+## Earlier release 1.0.3
 
 File outputs are created exclusively. If another process creates the destination before the report is opened, the command reports an error and preserves that file and the source input.
 

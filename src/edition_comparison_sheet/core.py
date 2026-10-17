@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import html
 import json
+import re
 from typing import Any
 
 from .json_equality import json_equal
@@ -70,16 +72,37 @@ def render_json(report: dict[str, Any]) -> str:
     return json.dumps(report, indent=2, ensure_ascii=False, default=str) + "\n"
 
 
+def _table_cell(value: str) -> str:
+    """Keep untrusted text inside one literal Markdown table cell."""
+    special = "\\`|*_[]!#~\n\r"
+    return "".join(f"&#{ord(char)};" if char in special else html.escape(char) for char in value)
+
+
 def render_markdown(report: dict[str, Any]) -> str:
-    lines = [f"# {report['project'].replace('-', ' ').title()} report", ""]
-    for key, value in report.items():
-        if key not in {"version", "project"}:
-            lines.extend(
-                [
-                    f"## {key.replace('_', ' ').title()}",
-                    "",
-                    f"```json\n{json.dumps(value, indent=2, ensure_ascii=False, default=str)}\n```",
-                    "",
-                ]
+    left = _table_cell(str(report["left_name"]))
+    right = _table_cell(str(report["right_name"]))
+    lines = [
+        "# Edition Comparison Sheet",
+        "",
+        f"Differences: **{report['difference_count']}**",
+        "",
+        f"| Field | {left} | {right} | Same? |",
+        "| --- | --- | --- | --- |",
+    ]
+    for item in report["comparisons"]:
+        values = []
+        for side in ("left", "right"):
+            values.append(
+                _table_cell(json.dumps(item[side], ensure_ascii=False))
+                if item[side + "_present"]
+                else "*(missing)*"
             )
-    return "\n".join(lines).rstrip() + "\n"
+        field = _table_cell(item["field"])
+        same = "Yes" if item["same"] else "No"
+        lines.append(f"| {field} | {values[0]} | {values[1]} | {same} |")
+    if not report["comparisons"]:
+        lines.extend(["", "There are no fields to compare."])
+    evidence = render_json(report).rstrip("\n")
+    fence = "`" * max(3, 1 + max((len(m.group()) for m in re.finditer(r"`+", evidence)), default=0))
+    lines.extend(["", "## JSON comparison evidence", "", fence + "json", evidence, fence, ""])
+    return "\n".join(lines)
