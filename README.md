@@ -1,5 +1,11 @@
 # Edition Comparison Sheet
 
+> ⭐ **Gold Star Project — finished for its intended scope.**
+> Scope reviewed for **v1.0.2** on **2026-10-17**. Actively maintained; meaningful future development can reopen the scope.
+> [What Gold Star means](https://www.loganpendragonforge.com/open-source/gold-star/)
+>
+> Explicit comparison of supplied edition metadata with validated selected fields and field-presence evidence.
+
 ## Current release 1.0.2
 
 Report boolean-to-number changes accurately in JSON comparison evidence.
