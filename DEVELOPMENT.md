@@ -23,3 +23,7 @@ Compare information about different book editions and choose which fields to inc
 Logan considers this project complete. Continue fixes and maintenance, and consider good new ideas. The catalog records the reviewed release.
 
 Definition: https://www.loganpendragonforge.com/open-source/?gold=1
+
+## 1.0.3 acceptance
+
+Create JSON and Markdown report destinations exclusively. Verify a destination created immediately before opening is preserved, the command returns an actionable error, source input bytes stay unchanged, and new destinations still work. Run formatting, lint, typing, the full test suite, builds, and the runtime dependency audit before protected release.
