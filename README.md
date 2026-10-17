@@ -1,5 +1,11 @@
 # Edition Comparison Sheet
 
+## Current release 1.0.1
+
+Validate edition inputs and field selectors before comparing supplied metadata.
+
+Input is an object with left and right edition objects. Optional fields is a nonempty array of unique field names present in at least one edition. Omit fields to compare the union except name. Missing and null differ; list order is significant; the tool compares supplied metadata and does not verify bibliographic truth.
+
 [![CI](https://github.com/loganpendragonmultiverse/edition-comparison-sheet/actions/workflows/ci.yml/badge.svg)](https://github.com/loganpendragonmultiverse/edition-comparison-sheet/actions/workflows/ci.yml)
 
 Compare book editions by contents, pagination, extras, translation, identifiers, and format. The command uses explicit UTF-8 JSON input and produces reviewable JSON or Markdown output.
